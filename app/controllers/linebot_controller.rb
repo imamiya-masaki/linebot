@@ -26,7 +26,7 @@ class LinebotController < ApplicationController
         file.each_line do |mode|
       File.open('flag.txt',"w") do |file|
 
-      if mode == "0"
+      if mode.include?("0")
         if event.message['text'].include?("change")
             response = "changed"
             file.puts("1")
@@ -38,7 +38,7 @@ class LinebotController < ApplicationController
         end
       end
 
-      if mode == "1"
+      if mode.include?("1")
         if event.message['text'].include?("change")
             response = "changed"
             file.puts("0")
