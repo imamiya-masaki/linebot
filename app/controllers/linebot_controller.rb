@@ -22,8 +22,6 @@ class LinebotController < ApplicationController
     events = client.parse_events_from(body)
 
     events.each { |event|
-    flag_a = 0
-    flag_b = 0
     if event.message['text'].include?("type a")
         response = "changed"
         flag_a =1
@@ -33,7 +31,7 @@ class LinebotController < ApplicationController
         response = "defg"
     else response = "ok"
     end
-    
+
       case event
       when Line::Bot::Event::Message
         case event.type
