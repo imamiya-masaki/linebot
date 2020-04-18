@@ -22,13 +22,25 @@ class LinebotController < ApplicationController
     events = client.parse_events_from(body)
 
     events.each { |event|
+    flag_a = 0
+    flag_b = 0
+    if event.message['text'].include?("type a")
+        response = "changed"
+        flag_a =1
+    elseif event.message['text'].include?("1") and flag_a = 0
+        response = "abc"
+    elseif event.message['text'].include?("1") and flag_a = 1
+        response = "defg"
+    else response = "ok"
+    end
+    
       case event
       when Line::Bot::Event::Message
         case event.type
         when Line::Bot::Event::MessageType::Text
           message = {
             type: 'text',
-            text: event.message['text']
+            text: response
           }
           client.reply_message(event['replyToken'], message)
         end
