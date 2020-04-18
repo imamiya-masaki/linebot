@@ -30,11 +30,12 @@ class LinebotController < ApplicationController
         if event.message['text'].include?("change")
             response = "changed"
             file.puts("1")
-        end
-        if event.message['text'].include?("a")
+        elseif event.message['text'].include?("a")
           response = "あいうえお"
+          file.puts("0")
         else
           response = "ok"
+          file.puts("0")
         end
       end
 
@@ -42,11 +43,12 @@ class LinebotController < ApplicationController
         if event.message['text'].include?("change")
             response = "changed"
             file.puts("0")
-        end
-        if event.message['text'].include?("a")
+        elseif event.message['text'].include?("a")
           response = "かきくけこ"
+          file.puts("1")
         else
           response = "ok"
+          file.puts("1")
         end
       end
 
