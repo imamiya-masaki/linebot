@@ -24,11 +24,8 @@ class LinebotController < ApplicationController
     events.each { |event|
     if event.message['text'].include?("type a")
         response = "changed"
-        flag_a =1
-    elseif event.message['text'].include?("1") and flag_a = 0
+    elseif event.message['text'].include?("1")
         response = "abc"
-    elseif event.message['text'].include?("1") and flag_a = 1
-        response = "defg"
     else response = "ok"
     end
 
