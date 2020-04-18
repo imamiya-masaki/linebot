@@ -33,7 +33,7 @@ class LinebotController < ApplicationController
         elsif event.message['text'].include?("みーくん")
           response = "みーくん！？" * 50
         else
-          response = @post.name
+          response = "ok"
         end
         #if文でresponseに送るメッセージを格納
 
